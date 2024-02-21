@@ -8,13 +8,14 @@ import { useRouter } from "next/navigation";
 import styles from "./Auth.module.scss";
 
 import Loader from "@/comoponents/loader/Loader";
+import Input from "@/comoponents/input/Input";
 
 const LoginClient = () => {
 
-    const [email, setemail] = useState('');
-    const [password, setpassword] = useState('');
-    const [isLoading, setisLoading] = useState(false);
-    const [isAutoLogin, setisAutoLogin] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [isAutoLogin, setIsAutoLogin] = useState(false);
     
     const router = useRouter();
 
@@ -41,7 +42,29 @@ const LoginClient = () => {
                     </h1>
 
                     <form onSubmit={handleLoginUser} className={styles.form}>
-                        Input
+                        <Input 
+                            email 
+                            icon="letter" 
+                            id="Email" 
+                            label="Email" 
+                            name="email" 
+                            placeholder="아이디(이메일)" 
+                            className={styles.control}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+
+                        <Input 
+                            password
+                            icon="lock" 
+                            id="password" 
+                            label="password" 
+                            name="password" 
+                            placeholder="비밀번호" 
+                            className={styles.password}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                         <div className={styles.group}>
                             자동 로그인, 비밀번호 수정
                         </div>
