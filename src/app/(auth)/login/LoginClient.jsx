@@ -9,6 +9,7 @@ import styles from "./Auth.module.scss";
 
 import Loader from "@/comoponents/loader/Loader";
 import Input from "@/comoponents/input/Input";
+import AutoSignInCheckbox from "@/comoponents/autoSignInCheckbox/AutoSignInCheckbox";
 
 const LoginClient = () => {
 
@@ -66,7 +67,11 @@ const LoginClient = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <div className={styles.group}>
-                            자동 로그인, 비밀번호 수정
+                            <AutoSignInCheckbox 
+                                checked={isAutoLogin} 
+                                onChange={(e) => setIsAutoLogin(e.target.checked)} 
+                            />
+                            {/* 자동 로그인, 비밀번호 수정 */}
                         </div>
 
                         <div className={styles.buttonGroup}>
